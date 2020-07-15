@@ -31,11 +31,59 @@ public class EndangeredAnimalTest {
         endangeredAnimal.saveEn();
         assertTrue(endangeredAnimal.getId()>0);
     }
-
-
     @Test
-    public void saveEn() {
+    public void enAnimalSavesCorrectly_ToTheDatabase() throws Exception{
+        EndangeredAnimal endangeredAnimal = setUpTheTask();
+        endangeredAnimal.saveEn();
+        assertTrue(EndangeredAnimal.allEnda().get(0).equals(endangeredAnimal));
     }
+    @Test
+    public void EnAnimal_FindsEndangeredAnimalWithTheSameId() throws Exception{
+        EndangeredAnimal firstendangered = setUpTheTask();
+        firstendangered.saveEn();
+        EndangeredAnimal secondendangered = new EndangeredAnimal("Cheetah",EndangeredAnimal.ADULT,EndangeredAnimal.ILL);
+        secondendangered.saveEn();
+        assertEquals(EndangeredAnimal.findEndangered(secondendangered.getId()),secondendangered);
+    }
+    @Test
+    public void enAnimalsReturnsTrueIfAnimalsAreTheSame() throws Exception{
+        EndangeredAnimal firstendangered = setUpTheTask();
+        firstendangered.saveEn();
+        EndangeredAnimal secondendangered = setUpTheTask();
+        secondendangered.saveEn();
+        assertTrue(firstendangered.equals(secondendangered));
+    }
+    @Test
+    public void enAnimalSave_returnsTrueIfNamesAreTheSame() throws Exception{
+        EndangeredAnimal endangeredAnimal= setUpTheTask();
+        endangeredAnimal.saveEn();
+        assertEquals(EndangeredAnimal.allEnda().get(0),endangeredAnimal);
+    }
+    @Test
+    public void enAnimalReturnsAllInstancesOfEndangeredAnimals_true() throws Exception{
+        EndangeredAnimal firstendangered = setUpTheTask();
+        firstendangered.saveEn();
+        EndangeredAnimal secondendangered = setUpTheTask();
+        secondendangered.saveEn();
+        assertEquals(EndangeredAnimal.allEnda().get(0),firstendangered);
+        assertEquals(EndangeredAnimal.allEnda().get(1),secondendangered);
+    }
+    @Test
+    public void update_EndangeredAnimal_true() throws Exception{
+        EndangeredAnimal firstendangered = setUpTheTask();
+        firstendangered.saveEn();
+        firstendangered.update("Impala");
+    }
+    @Test
+    public void delete_EndangeredAnimalById()throws Exception{
+        EndangeredAnimal firstendangered = setUpTheTask();
+        firstendangered.saveEn();
+        int deleteEndangeredAnimalById = firstendangered.getId();
+        firstendangered.delete();
+        assertEquals(null,EndangeredAnimal.findEndangered(deleteEndangeredAnimalById));
+
+    }
+
 
     public EndangeredAnimal setUpTheTask(){
         return new EndangeredAnimal("monkey",EndangeredAnimal.ADULT,EndangeredAnimal.ILL);
