@@ -1,6 +1,4 @@
-import models.Animal;
-import models.EndangeredAnimal;
-import models.Ranger;
+import models.*;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -162,5 +160,97 @@ public class App {
             model.put("template", "templates/rangers.vtl");
             return new ModelAndView(model, "rangers.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("locations/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "location-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/locations", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            String name = request.queryParams("name");
+            Location location = new Location(name);
+            location.save();
+            model.put("locations", Location.all());
+            return new ModelAndView(model, "locations.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/locations", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("locations", Location.all());
+            return new ModelAndView(model, "locations.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/locations/:id/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Location location = Location.find(Integer.parseInt(request.params(":id")));
+            location.delete();
+            model.put("locations", Location.all());
+            model.put("template", "templates/locations.vtl");
+            return new ModelAndView(model,"locations.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/locations/:id/edit", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Location location = Location.find(Integer.parseInt(request.params(":id")));
+            model.put("location", location);
+            model.put("locations", Location.all());
+            model.put("template", "templates/edit-location.vtl");
+            return new ModelAndView(model,"edit-location.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/locations/:id/edit", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Location location = Location.find(Integer.parseInt(request.params(":id")));
+            String name = request.queryParams("name");
+            location.update(name);
+            model.put("locations", Location.all());
+            return new ModelAndView(model,"locations.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("sightings/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("animals", Animal.all());
+            model.put("locations", Location.all());
+            model.put("endangereds", EndangeredAnimal.all());
+            model.put("rangers", Ranger.all());
+            return new ModelAndView(model, "sighting-form.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/sightings", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            int animalId = Integer.parseInt(request.queryParams("animalId"));
+            int rangerId = Integer.parseInt(request.queryParams("rangerId"));
+            int locationId = Integer.parseInt(request.queryParams("locationId"));
+            String type = request.queryParams("type");
+            Sighting sighting = new Sighting(animalId,rangerId,locationId,type);
+            sighting.save();
+            model.put("sightings", Sighting.all());
+            return new ModelAndView(model, "sightings.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/sightings", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("sightings", Sighting.all());
+            return new ModelAndView(model, "sightings.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        post("/sightings/:id/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Sighting sighting = Sighting.find(Integer.parseInt(request.params(":id")));
+            sighting.delete();
+            model.put("sightings", Sighting.all());
+            return new ModelAndView(model,"sightings.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/sightings/:id/edit", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            Sighting sighting = Sighting.find(Integer.parseInt(request.params(":id")));
+            model.put("sighting", sighting);
+            model.put("sightings", Sighting.all());
+            model.put("template", "templates/edit-sighting.vtl");
+            return new ModelAndView(model, "edit-sighting.hbs");
+        }, new HandlebarsTemplateEngine());
     }
+
 }
