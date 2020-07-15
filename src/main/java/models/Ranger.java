@@ -71,5 +71,23 @@ public class Ranger {
         }
 
     }
+    public void update(String name, int badgeNumber){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "UPDATE rangers SET name=:name, tag=:tag WHERE id=:id";
+            con.createQuery(sql)
+                    .addParameter("name", name)
+                    .addParameter("tag", tag)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }
+    }
+    public void delete() {
+        try(Connection con = DB.sql2o.open()){
+            String sql = "DELETE FROM rangers WHERE id = :id;";
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        }
+    }
 
 }

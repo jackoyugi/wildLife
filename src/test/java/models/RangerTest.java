@@ -68,6 +68,20 @@ public class RangerTest {
         Ranger savedRanger = Ranger.all().get(0);
         assertEquals(ranger.getId(), savedRanger.getId());
     }
+    @Test
+    public void update_updateRanger_true(){
+        Ranger ranger = new Ranger("Donson", 89898);
+        ranger.save();
+        ranger.update("Simon", 90899);
+    }
+    @Test
+    public void delete_deletesRanger_true(){
+        Ranger ranger = new Ranger("Donson", 89898);
+        ranger.save();
+        int rangerId = ranger.getId();
+        ranger.delete();
+        assertEquals(null, Ranger.find(rangerId));
+    }
 
 
 }

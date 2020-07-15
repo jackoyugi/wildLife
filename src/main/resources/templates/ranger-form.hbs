@@ -2,20 +2,20 @@
     <link rel='stylesheet' href='/css/styles.css'>
 {{/partial}}
 {{#partial "content"}}
-    <h1>Edit a Ranger</h1>
+    <h1>Add a Ranger</h1>
 
-    <p>Edit ranger here:</p>
+    <p>Add ranger here:</p>
 
-    <form action="/rangers/$ranger.getId()/edit" method="post">
+    <form action="/rangers" method="post">
         <div class="form-group">
             <label for="name">Ranger Name</label>
             <input id="name" name="name" type="text" class="form-control">
         </div>
         <div class="form-group">
-            <label for="badge">Badge Number</label>
-            <input id="badge" name="badge" type="text" class="form-control">
+            <label for="badge">Tag No</label>
+            <input id="badge" name="badge" type="number" class="form-control">
         </div>
-        <button type="submit" class="btn btn-dark-green">Edit Ranger</button>
+        <button type="submit" class="btn btn-dark-green">Add Ranger</button>
     </form>
 {{/partial}}
 {{> layout.hbs}}
