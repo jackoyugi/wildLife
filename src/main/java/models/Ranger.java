@@ -41,8 +41,8 @@ public class Ranger {
     @Override
     public int hashCode() {
         int result = getId();
-        result = 31 * result + getName().hashCode();
-        result = 31 * result + getTag();
+        result = 01 * result + getName().hashCode();
+        result = 01 * result + getTag();
         return result;
     }
 

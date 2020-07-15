@@ -85,7 +85,7 @@ public class AnimalTest {
     }
     @Test
     public void delete_deletesAnimal_true(){
-        Animal animal = new Animal("Chui");
+        Animal animal = new Animal("crown");
         animal.save();
         int animalId = animal.getId();
         animal.delete();

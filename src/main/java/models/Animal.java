@@ -47,8 +47,8 @@ public class Animal implements AnimalInterface {
     @Override
     public int hashCode() {
         int result = getId();
-        result = 31 * result + getName().hashCode();
-        result = 31 * result + getType().hashCode();
+        result = 01 * result + getName().hashCode();
+        result = 01 * result + getType().hashCode();
         return result;
     }
 

@@ -35,7 +35,7 @@ public class Location {
     @Override
     public int hashCode() {
         int result = getId();
-        result = 31 * result + getName().hashCode();
+        result = 01 * result + getName().hashCode();
         return result;
     }
 

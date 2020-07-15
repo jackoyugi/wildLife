@@ -2,6 +2,8 @@ import models.*;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -219,11 +221,11 @@ public class App {
 
         post("/sightings", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            int animalId = Integer.parseInt(request.queryParams("animalId"));
-            int rangerId = Integer.parseInt(request.queryParams("rangerId"));
-            int locationId = Integer.parseInt(request.queryParams("locationId"));
-            String type = request.queryParams("type");
-            Sighting sighting = new Sighting(animalId,rangerId,locationId,type);
+            int animalid = Integer.parseInt(request.queryParams("animalid"));
+            int rangerid = Integer.parseInt(request.queryParams("rangerid"));
+            int locationid = Integer.parseInt(request.queryParams("locationid"));
+            String animaltype = request.queryParams("animaltype");
+            Sighting sighting = new Sighting(animalid, rangerid, locationid, animaltype);
             sighting.save();
             model.put("sightings", Sighting.all());
             return new ModelAndView(model, "sightings.hbs");
@@ -248,7 +250,6 @@ public class App {
             Sighting sighting = Sighting.find(Integer.parseInt(request.params(":id")));
             model.put("sighting", sighting);
             model.put("sightings", Sighting.all());
-            model.put("template", "templates/edit-sighting.vtl");
             return new ModelAndView(model, "edit-sighting.hbs");
         }, new HandlebarsTemplateEngine());
     }

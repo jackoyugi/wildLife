@@ -41,7 +41,7 @@ public class EndangeredAnimalTest {
     public void EnAnimal_FindsEndangeredAnimalWithTheSameId() throws Exception{
         EndangeredAnimal firstendangered = setUpTheTask();
         firstendangered.saveEn();
-        EndangeredAnimal secondendangered = new EndangeredAnimal("Cheetah",EndangeredAnimal.ADULT,EndangeredAnimal.ILL);
+        EndangeredAnimal secondendangered = new EndangeredAnimal("owl",EndangeredAnimal.ADULT,EndangeredAnimal.ILL);
         secondendangered.saveEn();
         assertEquals(EndangeredAnimal.findEndangered(secondendangered.getId()),secondendangered);
     }
@@ -72,7 +72,7 @@ public class EndangeredAnimalTest {
     public void update_EndangeredAnimal_true() throws Exception{
         EndangeredAnimal firstendangered = setUpTheTask();
         firstendangered.saveEn();
-        firstendangered.update("Impala");
+        firstendangered.update("cruel");
     }
     @Test
     public void delete_EndangeredAnimalById()throws Exception{
