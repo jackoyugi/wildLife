@@ -13,6 +13,18 @@ public class Animal implements AnimalInterface {
         this.type = ANIMAL_TYPE;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
     @Override
     public void save() {
 

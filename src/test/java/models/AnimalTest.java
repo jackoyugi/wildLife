@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class AnimalTest {
 
@@ -17,6 +18,25 @@ public class AnimalTest {
         Animal animal = new Animal("owl");
         assertEquals(true, animal instanceof Animal);
     }
+
+    @Test
+    public void Animal_instantiatesCorrectlyWithType_String() {
+        Animal animal = new Animal("owl");
+        assertEquals("animal", animal.getType());
+    }
+    @Test
+    public void Animal_instantiatesWithName_String() {
+        Animal animal = new Animal("owl");
+        assertEquals("owl", animal.getName());
+    }
+
+//    @Test
+//    public void Animal_instantiatesCorrectlyWithAnId() {
+//        Animal animal = new Animal("owl");
+//        animal.save();
+//        assertTrue(animal.getId()>0);
+
+
 
 
 
