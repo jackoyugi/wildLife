@@ -48,4 +48,4 @@ Run test files using Red Green Refactor.
 
 ### Further help
 
-To get more help on the github [HeroSquad README](https://github.com/jackoyugi/README.md).
+To get more help on the github [wildLife README](https://github.com/jackoyugi/README.md).
