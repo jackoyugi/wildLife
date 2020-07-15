@@ -17,10 +17,12 @@ public class DatabaseRule extends ExternalResource {
             String deleteEndangeredAnimalQuery = "DELETE FROM Animals *;";
             String deleteSightingsQuery = "DELETE FROM sightings *;";
             String deleteRangersQuery = "DELETE FROM rangers *;";
+            String deleteLocationsQuery = "DELETE FROM locations *;";
             con.createQuery(deleteAnimalsQuery).executeUpdate();
             con.createQuery(deleteEndangeredAnimalQuery).executeUpdate();
             con.createQuery(deleteSightingsQuery).executeUpdate();
             con.createQuery(deleteRangersQuery).executeUpdate();
+            con.createQuery(deleteLocationsQuery).executeUpdate();
 
         }
     }
