@@ -2,83 +2,127 @@
 @import url("https://fonts.googleapis.com/css?family=Carter+One|Fredericka+the+Great");
 @import url("https://fonts.googleapis.com/css?family=Atma|Carter+One|Fredericka+the+Great");
 @import url("https://fonts.googleapis.com/css?family=Lato|Rye&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Tangerine|Abel|Inconsolata|Droid+Sans&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color:#fff;
-    font-family: 'Fredericka the Great', cursive;
+    font-family: 'Abel', sans-serif;
+    transition: all 0.2s ease-out;
     font-size:20px;
 }
 .form input[type=text]{
     color:white;
     background:none;
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-bottom: 1px solid white;
+      color: dark;
+      outline: none;
+      display: run-in;
+      animation: formLd 1.2s linear 1;
+      font-size: 1em;
+
 }
 body{
     text-align: center;
-    background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(/images/wild.jpeg);
+    background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(/images/owl.jpg);
     position: relative;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
 }
 .h-1,#btn-1,#ed-1{
-    color: #fff;
-    font-family: 'Fredericka the Great', cursive;
+    color: white;
+    border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 2px 20px;
+      font-family: 'Inconsolata', sans-serif;
+      border-radius: 20px;
+      margin-top: 5px;
 }
 .btn-1{
-    margin-top: 15%;
-    color: #fff;
-    font-family: 'Fredericka the Great', cursive;
+    margin-top: 5%;
+    font-family: 'Abel', sans-serif;
+    background: rgb(0, 255, 255);
+      box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+      color: white;
 }
-@keyframes slideInFromLeft {
+@keyframes slideInFromRight {
+
     0% {
-      transform: translateX(-100%);
+      transform: translateX(-50%);
+      0%{left: -100vw;}
+        30%{right: -10vw;box-shadow: 5px 5px 20px rgb(0, 0, 0)}
+        70%{box-shadow: 0px 0px 20px rgb(255, 255, 255)}
     }
     100% {
-      transform: translateX(0);
+        0%{left: -50vw;}
+          30%{right: -50vw;box-shadow: 5px 5px 20px rgb(0, 0, 0)}
+          70%{box-shadow: 0px 0px 20px rgb(255, 255, 255)}
+      transform: translateX(2);
     }
   }
 
   nav{
-    /* This section calls the slideInFromLeft animation we defined above */
-    animation: 1s ease-out 0s 1 slideInFromLeft;
-
-    /* background: #333; */
+    animation: 1s ease-out 0s 1 slideInFromRight;
     padding: 30px;
+    display: inline-block;
+      padding: 10px 30px;
+      font-size: 1em;
+      color: white;
+      cursor: pointer;
   }
 
   Added for aesthetics
-   body {margin: 0;font-family: "Segoe UI", Arial, Helvetica, Sans Serif;
+   body {margin: 0;font-family: "Tangerine", Sans Serif;
 }
     a {text-decoration: none; display: inline-block; margin-right: 10px; color:#fff;
     }
     button{
         position: relative;
       color: white;
-      background-color: black;
-      border: none;
+      background-color: green;
       padding: 10px 30px;
       cursor: pointer;
       transition: all 0.2s ease-in-out;
-      outline-color: transparent;
+      cursor: pointer;
+      outline: none;
+      padding: 2px 20px;
+      font-family: 'Inconsolata', sans-serif;
+       border-radius: 20px;
+       margin-top: 5px;
     }
+
     button::after{
-        content: '';
-        position: absolute;
+
+
         transform: rotate(45deg);
-        top: 5px;
         height: 20px;
         width: 20px;
-        left: 0;
         transition: all 0.2s ease;
+        content: "";
+          display: run-out;
+          border:25px solid rgb(11, 68, 35);
+          position: absolute;
+          top: -5px;
+          border-radius: 50%;
+          left: -35px;
+          transition: all 0.4s ease;
+          z-index: 2;
 
     }
     button:hover{
-        box-shadow: 0 0 20px rgb(255, 255, 255);
         border-radius: 30px;
         transition-delay: 0.1s;
+        background: rgb(0, 255, 255);
+          box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+          color: white;
 
     }
     button:active{
