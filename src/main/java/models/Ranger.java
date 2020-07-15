@@ -1,5 +1,9 @@
 package models;
 
+import org.sql2o.Connection;
+
+import java.util.List;
+
 public class Ranger {
 
     private int id;
@@ -21,6 +25,51 @@ public class Ranger {
 
     public int getTag() {
         return tag;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Ranger)) return false;
+
+        Ranger ranger = (Ranger) o;
+
+        if (getId() != ranger.getId()) return false;
+        if (getTag() != ranger.getTag()) return false;
+        return getName().equals(ranger.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = getId();
+        result = 31 * result + getName().hashCode();
+        result = 31 * result + getTag();
+        return result;
+    }
+
+    public void save(){
+        try (Connection conn = DB.sql2o.open()){
+            String sql = "INSERT INTO rangers(name,tag) VALUES(:name,:tag)";
+            this.id = (int) conn.createQuery(sql,true)
+                    .addParameter("name",name)
+                    .addParameter("tag",this.tag)
+                    .executeUpdate()
+                    .getKey();
+        }
+    }
+    public static List<Ranger> all(){
+        try(Connection con = DB.sql2o.open()){
+            return  con.createQuery("SELECT * FROM  rangers")
+                    .executeAndFetch(Ranger.class);
+        }
+    }
+
+    public static Ranger find(int id){
+        try (Connection con = DB.sql2o.open()) {
+            return con.createQuery("SELECT * FROM rangers WHERE id=:id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Ranger.class);
+        }
+
     }
 
 }
