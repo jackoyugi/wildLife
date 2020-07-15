@@ -8,7 +8,15 @@ import org.sql2o.Sql2o;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import static org.junit.Assert.assertEquals;
+
 public class AnimalTest {
+
+    @Test
+    public void instantiatesCorrectly_true(){
+        Animal animal = new Animal("owl");
+        assertEquals(true, animal instanceof Animal);
+    }
 
 
 

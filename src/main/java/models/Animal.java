@@ -8,6 +8,11 @@ public class Animal implements AnimalInterface {
     public    String type;
     public static final String ANIMAL_TYPE = "animal";
 
+    public Animal(String name){
+        this.name = name;
+        this.type = ANIMAL_TYPE;
+    }
+
     @Override
     public void save() {
 
