@@ -6,12 +6,12 @@
 
     <p>Add animal here:</p>
 
-    <form action="/animals" method="post">
+    <form action="/animals" method="post" class="jumbotron">
         <div class="form-group md-form">
             <label for="name" class="form-control">Animal Name</label>
             <input id="name" name="name" type="text" class="form-control">
         </div>
-        <button type="submit" class="btn btn-dark-green">Add Animal</button>
+        <button type="submit" class="btn btn-outline-success">Add Animal</button>
     </form>
 {{/partial}}
 {{> layout.hbs}}

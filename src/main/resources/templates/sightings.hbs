@@ -12,7 +12,7 @@
             <h6 class="font-weight-bold indigo-text py-2">Time: {{locationId}}</h6>
 
 
-            <form action="/sightings/{{id}}/delete" method="post">
+            <form action="/sightings/{{id}}/delete" method="post" class="jumbotron">
                 <a href="/sightings/{{id}}/delete"><button class="btn btn-danger">Delete sighting</button></a>
             </form>
         </div>
@@ -29,7 +29,7 @@
 
 
     <div class="row text-center">
-        <a href="/sightings/new"><button class="btn btn-dark-green">Add New Sighting</button></a>
+        <a href="/sightings/new"><button class="btn btn-outline-success">Add New Sighting</button></a>
     </div>
 {{/partial}}
 {{> layout.hbs}}

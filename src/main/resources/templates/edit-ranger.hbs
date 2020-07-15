@@ -6,7 +6,7 @@
 
     <p>Edit ranger here:</p>
 
-    <form action="/rangers/$ranger.getId()/edit" method="post">
+    <form action="/rangers/$ranger.getId()/edit" method="post" class="jumbotron">
         <div class="form-group">
             <label for="name">Ranger Name</label>
             <input id="name" name="name" type="text" class="form-control">
@@ -15,7 +15,7 @@
             <label for="badge">Badge Number</label>
             <input id="badge" name="badge" type="text" class="form-control">
         </div>
-        <button type="submit" class="btn btn-dark-green">Edit Ranger</button>
+        <button type="submit" class="btn btn-outline-success">Edit Ranger</button>
     </form>
 {{/partial}}
 {{> layout.hbs}}

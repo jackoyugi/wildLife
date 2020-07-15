@@ -6,7 +6,7 @@
 
     <p>Add sighting here:</p>
 
-    <form action="/sightings" method="post">
+    <form action="/sightings" method="post" class="jumbotron">
         <div class="form-group">
             <label for="animalId">Animal</label>
             <select mdb-select md-form colorful-select dropdown-secondary class="form-control" id='animalId' name='animalId' type='text'>
@@ -42,7 +42,7 @@
                 <option value="endangered">Endangered</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-dark-green">Add Sighting</button>
+        <button type="submit" class="btn btn-outline-success">Add Sighting</button>
     </form>
 {{/partial}}
 {{> layout.hbs}}

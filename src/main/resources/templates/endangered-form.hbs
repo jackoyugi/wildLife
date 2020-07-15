@@ -6,7 +6,7 @@
 
     <p>Add the animal here:</p>
 
-    <form action="/endangered" method="post">
+    <form action="/endangered" method="post" class="jumbotron">
         <div class="form-group">
             <label for="name">Animal Name</label>
             <input id="name" name="name" type="text" class="form-control">
@@ -29,7 +29,7 @@
                 <option value="EndangeredAnimal.ILL">Sick</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-dark-green">Add Endangered Animal</button>
+        <button type="submit" class="btn btn-outline-success">Add Endangered Animal</button>
     </form>
 {{/partial}}
 {{> layout.hbs}}

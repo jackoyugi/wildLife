@@ -6,12 +6,12 @@
 
     <p>Edit location here:</p>
 
-    <form action="/locations/$location.getId()/edit" method="post">
+    <form action="/locations/$location.getId()/edit" method="post" class="jumbotron">
         <div class="form-group">
             <label for="name">Location Name</label>
             <input id="name" name="name" type="text" class="form-control">
         </div>
-        <button type="submit" class="btn btn-dark-green">Edit Location</button>
+        <button type="submit" class="btn btn-outline-success">Edit Location</button>
     </form>
 {{/partial}}
 {{> layout.hbs}}

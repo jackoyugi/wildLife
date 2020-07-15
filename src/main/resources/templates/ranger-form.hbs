@@ -6,7 +6,7 @@
 
     <p>Add ranger here:</p>
 
-    <form action="/rangers" method="post">
+    <form action="/rangers" method="post" class="jumbotron">
         <div class="form-group">
             <label for="name">Ranger Name</label>
             <input id="name" name="name" type="text" class="form-control">
@@ -15,7 +15,7 @@
             <label for="badge">Tag No</label>
             <input id="badge" name="badge" type="number" class="form-control">
         </div>
-        <button type="submit" class="btn btn-success">Add Ranger</button>
+        <button type="submit" class="btn btn-outline-success">Add Ranger</button>
     </form>
 {{/partial}}
 {{> layout.hbs}}
