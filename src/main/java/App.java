@@ -110,7 +110,6 @@ public class App {
             EndangeredAnimal animal = (EndangeredAnimal) EndangeredAnimal.findEndangered(Integer.parseInt(request.params(":id")));
             model.put("animal", animal);
             model.put("endangered", EndangeredAnimal.allEnda());
-            model.put("template", "templates/edit-endangered.vtl");
             return new ModelAndView(model, "edit-endangered.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -126,7 +125,6 @@ public class App {
             Ranger ranger = new Ranger(name,badge);
             ranger.save();
             model.put("rangers", Ranger.all());
-            model.put("template", "templates/rangers.vtl");
             return new ModelAndView(model, "rangers.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -141,7 +139,6 @@ public class App {
             Ranger ranger = Ranger.find(Integer.parseInt(request.params(":id")));
             ranger.delete();
             model.put("rangers", Ranger.all());
-            model.put("template", "templates/rangers.vtl");
             return new ModelAndView(model,"rangers.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -160,7 +157,6 @@ public class App {
             int badge = Integer.parseInt(request.queryParams("badge"));
             ranger.update(name,badge);
             model.put("rangers", Ranger.all());
-            model.put("template", "templates/rangers.vtl");
             return new ModelAndView(model, "rangers.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -189,7 +185,6 @@ public class App {
             Location location = Location.find(Integer.parseInt(request.params(":id")));
             location.delete();
             model.put("locations", Location.all());
-            model.put("template", "templates/locations.vtl");
             return new ModelAndView(model,"locations.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -198,7 +193,6 @@ public class App {
             Location location = Location.find(Integer.parseInt(request.params(":id")));
             model.put("location", location);
             model.put("locations", Location.all());
-            model.put("template", "templates/edit-location.vtl");
             return new ModelAndView(model,"edit-location.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -222,11 +216,11 @@ public class App {
 
         post("/sightings", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            int animalid = Integer.parseInt(request.queryParams("animalid"));
-            int rangerid = Integer.parseInt(request.queryParams("rangerid"));
-            int locationid = Integer.parseInt(request.queryParams("locationid"));
-            String animaltype = request.queryParams("animaltype");
-            Sighting sighting = new Sighting(animalid, rangerid, locationid, animaltype);
+            int animalId = Integer.parseInt(request.queryParams("animalId"));
+            int rangerId = Integer.parseInt(request.queryParams("rangerId"));
+            int locationId = Integer.parseInt(request.queryParams("locationId"));
+            String animalType = request.queryParams("animalType");
+            Sighting sighting = new Sighting(animalId, rangerId, locationId, animalType);
             sighting.save();
             model.put("sightings", Sighting.all());
             return new ModelAndView(model, "sightings.hbs");

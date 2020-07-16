@@ -25,7 +25,7 @@ public class DB {
             String path = dbUri.getPath();
             String username = (dbUri.getUserInfo() == null) ? null : dbUri.getUserInfo().split(":")[0];
             String password = (dbUri.getUserInfo() == null) ? null : dbUri.getUserInfo().split(":")[1];
-            sql2o = new Sql2o("jdbc:postgresql://" + host + ":" + port + path, "mdtyunzqphluue", "0c6cc41ae558590758ebc01fd3b3bed6615207519d1cf94e3a1cd27814748406");
+            sql2o = new Sql2o("jdbc:postgresql://" + host + ":" + port + path, "jackoyugi", "00100");
         } catch (URISyntaxException e ) {
             logger.error("Unable to connect to database.");
         }

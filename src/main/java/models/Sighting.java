@@ -69,15 +69,15 @@ public class Sighting implements SightingInterface {
     @Override
     public void save(){
         try(Connection con = DB.sql2o.open()){
-            String sql = "INSERT INTO sightings (animalid, rangerid, locationid, date, animaltype) VALUES (:animalid," +
+            String sql = "INSERT INTO sightings (animalId, rangerId, locationId, date, animalType) VALUES (:animalId," +
                     " " +
-                    ":rangerid, :locationid, :date, :animaltype)";
+                    ":rangerId, :locationId, :date, :animalType)";
             this.id = (int) con.createQuery(sql,true)
-                    .addParameter("animalid", this.animalId)
-                    .addParameter("rangerid", this.rangerId)
-                    .addParameter("locationid", this.locationId)
+                    .addParameter("animalId", this.animalId)
+                    .addParameter("rangerId", this.rangerId)
+                    .addParameter("locationId", this.locationId)
                     .addParameter("date", this.date)
-                    .addParameter("animaltype", this.animalType)
+                    .addParameter("animalType", this.animalType)
                     .throwOnMappingFailure(false)
                     .executeUpdate()
                     .getKey();
