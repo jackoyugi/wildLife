@@ -16,9 +16,9 @@ Open the project in intellij editor and run the project using gradle `gradle run
 ## Behaviour Driven Development (BDD)
 | Behaviour          |       Input       |     Output       |
 | ------------------ | ----------------  | ---------------  |
-| Give Ranger'sname  |      JackWonder   |                  |
-| Choose location    |      Kodera       |                  |
-|Choose sightings    | 
+| Give Ranger'sname  |      JackWonder   |      jackwonder            |
+| Choose location    |      Kodera       |      kodera          |
+|Choose sightings    |     sighted       |      sighted
 
 
 ### Technologies Used
@@ -35,6 +35,9 @@ Open the project in intellij editor and run the project using gradle `gradle run
 
 ### Github repo link
 https://github.com/jackoyugi/WildLife
+
+### Deployment Heroku link
+https://jacwild.herokuapp.com/
 
 
 ### Build
