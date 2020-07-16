@@ -20,6 +20,7 @@ public class App {
             port = 4567;
         }
         port(port);
+//        port(getHerokuAssignedPort());
         staticFileLocation("/public");
 
         get("/", (request, response) -> {

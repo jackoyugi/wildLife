@@ -1,0 +1,17 @@
+{{#partial "styles"}}
+    <link rel='stylesheet' href='/css/styles.css'>
+{{/partial}}
+{{#partial "content"}}
+    <h1>Add Location</h1>
+
+    <p>Add location here:</p>
+
+    <form action="/locations" method="post" class="jumbotron">
+        <div class="form-group">
+            <label for="name">Location</label>
+            <input id="name" name="name" type="text" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-outline-success">Add Location</button>
+    </form>
+{{/partial}}
+{{> layout.hbs}}
